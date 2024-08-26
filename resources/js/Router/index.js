@@ -5,10 +5,23 @@ import pos from "../Pages/pos.vue";
 import transaction from "../Pages/Transaction.vue";
 import report from "../Pages/report.vue";
 import notfound404 from "../Pages/notfound404.vue";
+import login from "../Pages/login.vue";
+import register from "../Pages/register.vue";
 
 import { useStore } from "../Store/auth";
 
 export const routes = [
+    {
+        name: "login",
+        path: "/login",
+        component: login
+    },
+
+    {
+        name: "register",
+        path: "/register",
+        component: register
+    },
     {
     name: "store",
     path: "/store",
@@ -84,8 +97,8 @@ router.beforeEach((to,from,next)=>{
         }
 
     } else {
-        store.remove_token()
-        store.remove_user()
+        // store.remove_token()
+        // store.remove_user()
     }
 
     if(to.meta.requiresAuth){
